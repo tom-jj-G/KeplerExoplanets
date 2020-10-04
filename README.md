@@ -3,9 +3,9 @@
 ## Presentation
 
 ### Selected topic
-### Reason why they selected their topic
-### Description of their source of data
-### Questions they hope to answer with the data
+### Reason why the topic has been selected
+### Description of the source of data
+### Questions we hope to answer with the data
 
 ## GitHub
 ### Communication protocols
