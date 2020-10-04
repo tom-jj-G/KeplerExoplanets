@@ -1,4 +1,4 @@
-# Kepler-Exoplanet
+# KeplerExoplanets
 
 ## Presentation
 
