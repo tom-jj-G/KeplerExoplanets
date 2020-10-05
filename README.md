@@ -6,7 +6,7 @@
 Exoplanet — searching for a new World beyond our solar system
 
 ### Reason why the topic has been selected
-The universe is infinite and boundless, and it consists of various forms of matters. Earth is one of the planet in the universe. Humans lived in the Earth for so many years and have been asking the question that are we alone in the universe? Therefore, scientists and researchers are searching for a planet that obtain similar living conditions as Earth, and we called it “exoplanet”.
+Is Earth the only habitable planet in the universe? Scientists and researchers are searching for planets that can provide similar living conditions for human, and tas Earth, and those planets are called “exoplanet”. We want to investigate the exoplanet data provided by NASA Exoplanet Archive and find a habitable planet. 
 
 ### Description of the source of data
 * https://exoplanetarchive.ipac.caltech.edu/index.html
@@ -14,8 +14,10 @@ The universe is infinite and boundless, and it consists of various forms of matt
 
 ### Questions we hope to answer with the data
 * How many confirmed planets?
+* What type of planets are confirmed planets? 
 * Which confirmed planet is closest to Earth?
 * Based on temperature and surface gravity, which confirmed planet is the most habitable? 
+* What are the most recent discovered confirmed planets?
 
 
 ## GitHub
