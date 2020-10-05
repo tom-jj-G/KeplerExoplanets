@@ -6,7 +6,7 @@
 Exoplanet — searching for a new World beyond our solar system
 
 ### Reason why the topic has been selected
-Is Earth the only habitable planet in the universe? Scientists and researchers are searching for planets that can provide similar living conditions for human, and tas Earth, and those planets are called “exoplanet”. We want to investigate the exoplanet data provided by NASA Exoplanet Archive and find a habitable planet. 
+Is Earth the only habitable planet in the universe? Scientists and researchers are searching for planets that can provide similar living conditions for human, and those planets are called “exoplanet”. We want to investigate the exoplanet data provided by NASA Exoplanet Archive and find a habitable planet. 
 
 ### Description of the source of data
 * https://exoplanetarchive.ipac.caltech.edu/index.html
