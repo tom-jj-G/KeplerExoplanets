@@ -17,6 +17,15 @@ After the PR has been accepted, the person who made the PR will merge her/his co
 
 
 ## Machine Learning Model
+At the moment our target result is binary: Is it a planet or not. 
+The dataset is labeled (koi_pdisposition) and so we will apply a supervised ML logistics model.<br>
+
+Additionally our plan is to create a neural net with the sigmoid activation function and compare it to the supervised ML model.
+
+During the initial EDA its been relaved that (koi_disposition) may be another target worth investigating. The is not binary but has (4) possible outcomes.<br>
+Also during EDA we discovered that there are a large number of NaN values that we will need to process.
+
+For the initial model we have removed all NaNs.
 
 ## Database
 
