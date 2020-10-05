@@ -3,9 +3,17 @@
 ## Presentation
 
 ### Selected topic
+Exoplanet — searching for a new World beyond our solar system
+
 ### Reason why the topic has been selected
+The universe is infinite and boundless, and it consists of various forms of matters. Earth is one of the planet in the universe. Humans lived in the Earth for so many years and have been asking the question that are we alone in the universe? Therefore, scientists and researchers are searching for a planet that obtain similar living conditions as Earth, and we called it “exoplanet”.
+
 ### Description of the source of data
+* https://exoplanetarchive.ipac.caltech.edu/index.html
+
 ### Questions we hope to answer with the data
+* Is there a habitable planet besides Earth and where is it in space?
+* How many confirmed planet? Which one is closest to solar system? 
 
 ## GitHub
 ### Communication protocols
