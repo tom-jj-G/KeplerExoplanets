@@ -36,10 +36,15 @@ Created a DB called "kepler", with one initial table called "raw_kepler".
 Project DB files of note:
 - The DB & table definition SQL files are in the project Database folder.
 - The source CSV file is in the project Resources folder.
+- The source file was copied from this kaggle source - https://www.kaggle.com/nasa/kepler-exoplanet-search-results?select=cumulative.csv
 
 Use the PG Admin Import/Export tool to import the CSV file.
 An initial load resulted in the following outcome:
 - "Successfully run. Total query runtime: 215 msec. 9564 rows affected."
+
+*NOTE:*
+During initial loading I assumed, based on an initial quick read of the page describing the data columns of our source data file, that the column "kepid" might be suitable as a unique primary key. That turned out to NOT be the case, further review of the data model is required.
+- Data dictionary "Data Columns in Kepler Objects of Interest Table" is located here "https://exoplanetarchive.ipac.caltech.edu/docs/API_kepcandidate_columns.html#tce_info"
 
 
 ## Dashboard
