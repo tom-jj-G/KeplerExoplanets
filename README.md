@@ -28,5 +28,18 @@ Also during EDA we discovered that there are a large number of NaN values that w
 For the initial model we have removed all NaNs.
 
 ## Database
+We are using the Postgres DB, currently an instance residing on Damien's local machine.
+
+Created a DB called "kepler", with one initial table called "raw_kepler".
+- The table is a one-to-one map wth the source CSV data file.
+
+Project DB files of note:
+- The DB & table definition SQL files are in the project Database folder.
+- The source CSV file is in the project Resources folder.
+
+Use the PG Admin Import/Export tool to import the CSV file.
+An initial load resulted in the following outcome:
+- "Successfully run. Total query runtime: 215 msec. 9564 rows affected."
+
 
 ## Dashboard
