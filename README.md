@@ -36,6 +36,7 @@ Created a DB called "kepler", with one initial table called "raw_kepler".
 Project DB files of note:
 - The DB & table definition SQL files are in the project Database folder.
 - The source CSV file is in the project Resources folder.
+- The source file was copied from this kaggle source - https://www.kaggle.com/nasa/kepler-exoplanet-search-results?select=cumulative.csv
 
 Use the PG Admin Import/Export tool to import the CSV file.
 An initial load resulted in the following outcome:
