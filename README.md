@@ -10,6 +10,7 @@ The universe is infinite and boundless, and it consists of various forms of matt
 
 ### Description of the source of data
 * https://exoplanetarchive.ipac.caltech.edu/index.html
+* https://www.kaggle.com/nasa/kepler-exoplanet-search-results
 
 ### Questions we hope to answer with the data
 * Is there a habitable planet besides Earth and where is it in space?
