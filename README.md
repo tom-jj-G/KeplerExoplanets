@@ -13,8 +13,10 @@ The universe is infinite and boundless, and it consists of various forms of matt
 * https://www.kaggle.com/nasa/kepler-exoplanet-search-results
 
 ### Questions we hope to answer with the data
-* Is there a habitable planet besides Earth and where is it in space?
-* How many confirmed planet? Which one is closest to solar system? 
+* How many confirmed planets?
+* Which confirmed planet is closest to Earth?
+* Based on temperature and surface gravity, which confirmed planet is the most habitable? 
+
 
 ## GitHub
 ### Communication protocols
