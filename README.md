@@ -14,10 +14,12 @@ Is Earth the only habitable planet in the universe? Scientists and researchers a
 
 ### Questions we hope to answer with the data
 * How many confirmed planets?
-* What type of planets are confirmed planets? 
+* What type of planets consider as confirmed planets? 
 * Which confirmed planet is closest to Earth?
-* Based on temperature and surface gravity, which confirmed planet is the most habitable? 
-* What are the most recent discovered confirmed planets?
+* What are the characteristics of confirmed planets? 
+* Based on the characteristics, which confirmed planet is the most habitable? 
+* What are the most recent discovered confirmed planets? 
+* How often are exoplanets confirmed in the existing liteatures disconfirmed by measurement from Kepler?
 
 
 ## GitHub
