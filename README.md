@@ -3,9 +3,24 @@
 ## Presentation
 
 ### Selected topic
+Exoplanet — searching for a new World beyond our solar system
+
 ### Reason why the topic has been selected
+Is Earth the only habitable planet in the universe? Scientists and researchers are searching for planets that can provide similar living conditions for human, and those planets are called “exoplanet”. We want to investigate the exoplanet data provided by NASA Exoplanet Archive and find a habitable planet. 
+
 ### Description of the source of data
+* https://exoplanetarchive.ipac.caltech.edu/index.html
+* https://www.kaggle.com/nasa/kepler-exoplanet-search-results
+
 ### Questions we hope to answer with the data
+* How many confirmed planets?
+* What type of planets consider as confirmed planets? 
+* Which confirmed planet is closest to Earth?
+* What are the characteristics of confirmed planets? 
+* Based on the characteristics, which confirmed planet is the most habitable? 
+* What are the most recent discovered confirmed planets? 
+* How often are exoplanets confirmed in the existing liteatures disconfirmed by measurement from Kepler?
+
 
 ## GitHub
 ### Communication protocols
