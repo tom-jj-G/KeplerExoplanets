@@ -32,15 +32,28 @@ After the PR has been accepted, the person who made the PR will merge her/his co
 
 
 ## Machine Learning Model
-At the moment our target result is binary: Is it a planet or not. 
-The dataset is labeled (koi_pdisposition) and so we will apply a supervised ML logistics model.<br>
+Our target result is binary: Is it a planet or not. The dataset is labeled (koi_pdisposition).
 
-Additionally our plan is to create a neural net with the sigmoid activation function and compare it to the supervised ML model.
+#### Based on the Dataset we will be evaluating the below (4) models.
+- Supervised ML logistic Regression 
+- Gradient Boosted Tree 
+- Random Forest 
+- Neural Net (Signmoid activation) 
 
-During the initial EDA its been relaved that (koi_disposition) may be another target worth investigating. The is not binary but has (4) possible outcomes.<br>
-Also during EDA we discovered that there are a large number of NaN values that we will need to process.
+#### EDA & Preprocessing
+Null Values
+- A large number of Null values (40k+)are present in the raw data. After preprocessing (including dropping unneeded columns) 3,572 remain
+- We are evaluating several methods for handling these: Dropping, Imputing (Mean, Median, Mode)
 
-For the initial model we have removed all NaNs.
+Feature Evaluation & Selection
+- We are currently leveraging a Correlation Matrix and Feature Importance Graph to guide feature selection
+
+Creating test & train datasets
+- Initially we set the targey(y) to koi_pdisposition and the features to the remaining columns based on the feature evaluation process
+- The training & testing set are split in default manner which works out to 75% train & 25% test
+
+Scaling
+- The processed dataframe is scaled using ScikitLearns's standard scaler before the models are ran
 
 ## Database
 We are using the Postgres DB, currently an instance residing on Damien's local machine.
