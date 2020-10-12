@@ -21,6 +21,8 @@ Is Earth the only habitable planet in the universe? Scientists and researchers a
 * What are the most recent discovered confirmed planets? 
 * How often are exoplanets confirmed in the existing liteatures disconfirmed by measurement from Kepler?
 
+Google slides drafting:
+https://docs.google.com/presentation/d/1aQ9Man76uhiFXY43nu5pnqOB6zrk1MvBqSxHWUtZ_Y0/edit?usp=sharing
 
 ## GitHub
 ### Communication protocols
