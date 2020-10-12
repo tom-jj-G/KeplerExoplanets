@@ -54,7 +54,7 @@ CREATE TABLE public.raw_kepler
     ra double precision,
     "dec" double precision,
     koi_kepmag double precision,
-    CONSTRAINT pk_raw_kepler PRIMARY KEY (rowid)
+    CONSTRAINT pk_raw_kepler PRIMARY KEY (kepoi_name)
 )
 
 TABLESPACE pg_default;
