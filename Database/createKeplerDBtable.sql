@@ -11,7 +11,7 @@ CREATE TABLE public.raw_kepler
     koi_disposition text COLLATE pg_catalog."default" NOT NULL,
     koi_pdisposition text COLLATE pg_catalog."default" NOT NULL,
     koi_score double precision,
-    koi_fpflag_n bigint,
+    koi_fpflag_nt bigint,
     koi_fpflag_ss bigint,
     koi_fpflag_co bigint,
     koi_fpflag_ec bigint,
