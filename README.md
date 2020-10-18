@@ -37,10 +37,13 @@ After the PR has been accepted, the person who made the PR will merge her/his co
 Our target result is binary: Is it a planet or not. The dataset is labeled (koi_pdisposition).
 
 #### Based on the Dataset we will be evaluating the below (4) models.
-- Supervised ML logistic Regression 
-- Gradient Boosted Tree 
-- Random Forest 
-- Neural Net (Signmoid activation) 
+|Model name|Benefits|Limits|
+|---|--|--|
+|Supervised ML logistic Regression|Easy to understand predictions| Could struggle with high dimensional datasets and correlated features|
+|Gradient Boosted Tree|High-performing<br>Easy to understand predictions|Sensitive to outliers|
+|Random Forest|High-performing<br>Robust against overfitting<br>Fast to train|Not easy to understand predictions|
+|Neural Net (Sigmoid activation)|Handle extremely complex tasks|Slow to train<br>Almost impossible to understand predictions|
+
 
 #### EDA & Preprocessing
 Null Values
