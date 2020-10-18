@@ -51,7 +51,7 @@ Null Values
 - We are evaluating several methods for handling these: Dropping, Imputing (Mean, Median, Mode)
 
 Feature Evaluation & Selection
-- We are currently leveraging a Correlation Matrix and Feature Importance Graph to guide feature selection
+- We are primarily using a Sequential Feature Selector currently from the mlextend library. This performs an analysis on a range of possible features subset and scores them. Additionally we have a Correlation Matrix, Coefficient analysis and Feature Importance Graph to guide feature selection
 
 Creating test & train datasets
 - Initially we set the targey(y) to koi_pdisposition and the features to the remaining columns based on the feature evaluation process
