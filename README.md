@@ -81,3 +81,7 @@ During initial loading I assumed, based on an initial quick read of the page des
 
 
 ## Dashboard
+Google slides drafting: https://docs.google.com/presentation/d/1aQ9Man76uhiFXY43nu5pnqOB6zrk1MvBqSxHWUtZ_Y0/edit?usp=sharing
+![](images/github/dashboardDraft.png)
+
+We are currently planning on using Tableau for the presentation & dashboard. The interactive elements will be the graphs shown.
