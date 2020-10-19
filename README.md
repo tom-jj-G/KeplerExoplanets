@@ -61,22 +61,30 @@ Scaling
 - The processed dataframe is scaled using ScikitLearns's standard scaler before the models are ran
 
 ## Database
-We are using the Postgres DB, currently an instance residing on Damien's local machine.
+We are using the Postgres DB, currently an instance running in AWS on a free tier.
 
-Created a DB called "kepler", with one initial table called "raw_kepler".
-- The table is a one-to-one map wth the source CSV data file.
+The DB engine instance is called "kepler", with two tables
+- "raw_kepler" & **XXXX**
+- raw_kepler is populated wth the CSV data file sourced from kaggle
+- **XXXX** is a populated with ...................!!!!
 
 Project DB files of note:
 - The DB & table definition SQL files are in the project Database folder.
 - The source CSV file is in the project Resources folder.
-- The source file was copied from this kaggle source - https://www.kaggle.com/nasa/kepler-exoplanet-search-results?select=cumulative.csv
+- The source CSV file was copied from this kaggle source - https://www.kaggle.com/nasa/kepler-exoplanet-search-results?select=cumulative.csv
 
-Use the PG Admin Import/Export tool to import the CSV file.
+We used the PG Admin console Import/Export tool to import the CSV file into the raw_kepler DB table.
 An initial load resulted in the following outcome:
 - "Successfully run. Total query runtime: 215 msec. 9564 rows affected."
 
-*NOTE:*
-During initial loading I assumed, based on an initial quick read of the page describing the data columns of our source data file, that the column "kepid" might be suitable as a unique primary key. That turned out to NOT be the case, further review of the data model is required.
+### DB Schema
+- The column "kepoi_name" is the "raw_kepler" table's unique primary key.
+- The column "kepid" is the "habitable_data" table's primary ky.
+- **XXXXhabitable_data** is joined to raw_kepler using the kepid as a foreign key. 
+- This is a one to many relationship, as there may be more than one Kepler Object of Interest associated with any kepid star.
+
+ERD - ![see here](https://github.com/tom-jj-G/KeplerExoplanets/blob/main/Database/ERD.jpg)
+
 - Data dictionary "Data Columns in Kepler Objects of Interest Table" is located here "https://exoplanetarchive.ipac.caltech.edu/docs/API_kepcandidate_columns.html#tce_info"
 
 
