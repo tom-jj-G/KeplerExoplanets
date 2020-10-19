@@ -64,24 +64,21 @@ Scaling
 We are using the Postgres DB, currently an instance running in AWS on a free tier.
 
 The DB engine instance is called "kepler", with two tables
-- "raw_kepler" & **XXXX**
+- "raw_kepler" & "kepler_habitable"
 - raw_kepler is populated wth the CSV data file sourced from kaggle
-- **XXXX** is a populated with ...................!!!!
+- kepler_habitable is a populated with some data about the stellar object associated with the Kepler Object of Interest (KOI)
 
-Project DB files of note:
+Project DB artifiacts of note:
 - The DB & table definition SQL files are in the project Database folder.
-- The source CSV file is in the project Resources folder.
-- The source CSV file was copied from this kaggle source - https://www.kaggle.com/nasa/kepler-exoplanet-search-results?select=cumulative.csv
+- The source CSV files are in the project Resources folder.
 
-We used the PG Admin console Import/Export tool to import the CSV file into the raw_kepler DB table.
-An initial load resulted in the following outcome:
-- "Successfully run. Total query runtime: 215 msec. 9564 rows affected."
+We used the PG Admin console Import/Export tool to import the CSV files into the DB tables.
 
 ### DB Schema
-- The column "kepoi_name" is the "raw_kepler" table's unique primary key.
-- The column "kepid" is the "habitable_data" table's primary ky.
-- **XXXXhabitable_data** is joined to raw_kepler using the kepid as a foreign key. 
-- This is a one to many relationship, as there may be more than one Kepler Object of Interest associated with any kepid star.
+- The column "kepoi_name" is the "raw_kepler" table's unique primary key, where each row represents one Kepler Object of Interest.
+- The column "kepid" is the "habitable_data" table's primary key, where each row repesents the stellar object associated with a KOI.
+- Join raw_kepler KOI data to it's associated stellar object data using "kepid" as a foreign key
+- This is a one to many relationship, where any kepid star can have one or more related KOIs.
 
 ERD - ![see here](https://github.com/tom-jj-G/KeplerExoplanets/blob/main/Database/ERD.jpg)
 
