@@ -1,21 +1,24 @@
 ﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
+-- This is the schema definition for the Kepler Exoplant Project DB
+-- The following is a PLACEHOLDER table
 
 CREATE TABLE "kepler_habitable" (
     "kepid" int   NOT NULL,
-    "kepoi_name" string   NOT NULL,
     "kepler_name" string   NOT NULL,
-    "field1" string   NOT NULL,
-    "field2" string   NOT NULL,
-    "field3" string   NOT NULL,
-    "field4" string   NOT NULL,
-    "field5" string   NOT NULL,
+    "koi_smet" float64   NOT NULL,
+    "koi_smet_err1" float64   NOT NULL,
+    "koi_smet_err2" float64   NOT NULL,
+    "koi_smass" float64   NOT NULL,
+    "koi_smass_err1" float64   NOT NULL,
+    "koi_smass_err2" float64   NOT NULL,
     CONSTRAINT "pk_kepler_habitable" PRIMARY KEY (
-        "kepid","kepoi_name"
+        "kepid"
      )
 );
 
+-- The following table definition is used to store the raw data as loaded from the source CSV file
 CREATE TABLE "raw_kepler" (
     "rowid" integer   NOT NULL,
     "kepid" integer   NOT NULL,
@@ -71,6 +74,6 @@ CREATE TABLE "raw_kepler" (
      )
 );
 
-ALTER TABLE "kepler_habitable" ADD CONSTRAINT "fk_kepler_habitable_kepler_name" FOREIGN KEY("kepler_name")
-REFERENCES "raw_kepler" ("kepoi_name");
+ALTER TABLE "kepler_habitable" ADD CONSTRAINT "fk_kepler_habitable_kepid" FOREIGN KEY("kepid")
+REFERENCES "raw_kepler" ("kepid");
 
