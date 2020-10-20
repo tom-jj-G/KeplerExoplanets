@@ -37,10 +37,13 @@ After the PR has been accepted, the person who made the PR will merge her/his co
 Our target result is binary: Is it a planet or not. The dataset is labeled (koi_pdisposition).
 
 #### Based on the Dataset we will be evaluating the below (4) models.
-- Supervised ML logistic Regression 
-- Gradient Boosted Tree 
-- Random Forest 
-- Neural Net (Signmoid activation) 
+|Model name|Benefits|Limits|
+|---|--|--|
+|Supervised ML logistic Regression|- Easy to understand predictions| - Could struggle with high dimensional datasets and correlated features|
+|Gradient Boosted Tree|- High-performing<br> - Easy to understand predictions|- Sensitive to outliers|
+|Random Forest|- High-performing<br>- Robust against overfitting<br>- Fast to train|- Not easy to understand predictions|
+|Neural Net (Sigmoid activation)|- Handle extremely complex tasks|- Slow to train<br>- Almost impossible to understand predictions|
+
 
 #### EDA & Preprocessing
 Null Values
@@ -48,7 +51,7 @@ Null Values
 - We are evaluating several methods for handling these: Dropping, Imputing (Mean, Median, Mode)
 
 Feature Evaluation & Selection
-- We are currently leveraging a Correlation Matrix and Feature Importance Graph to guide feature selection
+- We are primarily using a Sequential Feature Selector currently from the mlextend library. This performs an analysis on a range of possible features subset and scores them. Additionally we have a Correlation Matrix, Coefficient analysis and Feature Importance Graph to guide feature selection
 
 Creating test & train datasets
 - Initially we set the targey(y) to koi_pdisposition and the features to the remaining columns based on the feature evaluation process
@@ -58,23 +61,32 @@ Scaling
 - The processed dataframe is scaled using ScikitLearns's standard scaler before the models are ran
 
 ## Database
-We are using the Postgres DB, currently an instance residing on Damien's local machine.
+We are using the Postgres DB, currently an instance running in AWS on a free tier.
 
-Created a DB called "kepler", with one initial table called "raw_kepler".
-- The table is a one-to-one map wth the source CSV data file.
+The DB engine instance is called "kepler", with two tables
+- "raw_kepler" & "kepler_habitable"
+- raw_kepler is populated wth the CSV data file sourced from kaggle
+- kepler_habitable is a populated with some data about the stellar object associated with the Kepler Object of Interest (KOI)
 
-Project DB files of note:
+Project DB artifiacts of note:
 - The DB & table definition SQL files are in the project Database folder.
-- The source CSV file is in the project Resources folder.
-- The source file was copied from this kaggle source - https://www.kaggle.com/nasa/kepler-exoplanet-search-results?select=cumulative.csv
+- The source CSV files are in the project Resources folder.
 
-Use the PG Admin Import/Export tool to import the CSV file.
-An initial load resulted in the following outcome:
-- "Successfully run. Total query runtime: 215 msec. 9564 rows affected."
+We used the PG Admin console Import/Export tool to import the CSV files into the DB tables.
 
-*NOTE:*
-During initial loading I assumed, based on an initial quick read of the page describing the data columns of our source data file, that the column "kepid" might be suitable as a unique primary key. That turned out to NOT be the case, further review of the data model is required.
+### DB Schema
+- The column "kepoi_name" is the "raw_kepler" table's unique primary key, where each row represents one Kepler Object of Interest.
+- The column "kepid" is the "habitable_data" table's primary key, where each row repesents the stellar object associated with a KOI.
+- Join raw_kepler KOI data to it's associated stellar object data using "kepid" as a foreign key
+- This is a one to many relationship, where any kepid star can have one or more related KOIs.
+
+ERD - ![see here](https://github.com/tom-jj-G/KeplerExoplanets/blob/main/Database/ERD.jpg)
+
 - Data dictionary "Data Columns in Kepler Objects of Interest Table" is located here "https://exoplanetarchive.ipac.caltech.edu/docs/API_kepcandidate_columns.html#tce_info"
 
 
 ## Dashboard
+Google slides drafting: https://docs.google.com/presentation/d/1aQ9Man76uhiFXY43nu5pnqOB6zrk1MvBqSxHWUtZ_Y0/edit?usp=sharing
+![](images/github/dashboardDraft.png)
+
+We are currently planning on using Tableau for the presentation & dashboard. The interactive elements will be the graphs shown.
