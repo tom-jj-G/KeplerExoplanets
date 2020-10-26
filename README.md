@@ -50,7 +50,7 @@ Current f1 scores:<br>
 Supervised ML logistic Regression: 83%<br>
 Gradient Boosted Tree: 90%<br>
 Random Forest: 90%<br>
-Neural Net: 83.6%<br>
+Neural Net: 96%<br>
 *Note that our Neural Net has been updated to a deep model using the "relu" and "softmax" activations
 
 #### EDA & Preprocessing
