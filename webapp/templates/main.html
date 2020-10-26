@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+<head>
+    <title>Kepler Model</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        Input 1:
+        <input name="input_1" type="number" required>
+        <br>
+        <br> Input 2:
+        <input name="input_2" type="number" required>
+        <br>
+        <br> Input 3:
+        <input name="input_3" type="number" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Predicted output:
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+</html>
