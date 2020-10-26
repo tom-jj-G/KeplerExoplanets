@@ -34,7 +34,9 @@ After the PR has been accepted, the person who made the PR will merge her/his co
 
 
 ## Machine Learning Model
-Our target result is binary: Is it a planet or not. The dataset is labeled (koi_pdisposition).
+We have updated our target value to be the "Exoplanet_Archive_Disposition" which is a categorical field with three options: False Positive, Candidate & Confirmed.
+- The prior target was binary-> Is it a planet or not: Disposition_Using_Kepler_Data. Models ran with this target achieved a 99% f1
+- Applying additional domain knowledge reveals that the Exoplanet_Archive_Disposition is the results of a broader and more recent NASA analysis and therefore a better target selection
 
 #### Based on the Dataset we will be evaluating the below (4) models.
 |Model name|Benefits|Limits|
@@ -42,16 +44,24 @@ Our target result is binary: Is it a planet or not. The dataset is labeled (koi_
 |Supervised ML logistic Regression|- Easy to understand predictions| - Could struggle with high dimensional datasets and correlated features|
 |Gradient Boosted Tree|- High-performing<br> - Easy to understand predictions|- Sensitive to outliers|
 |Random Forest|- High-performing<br>- Robust against overfitting<br>- Fast to train|- Not easy to understand predictions|
-|Neural Net (Sigmoid activation)|- Handle extremely complex tasks|- Slow to train<br>- Almost impossible to understand predictions|
+|Neural Net|- Handle extremely complex tasks|- Slow to train<br>- Almost impossible to understand predictions|
 
+Current f1 scores:<br>
+Supervised ML logistic Regression: 83%<br>
+Gradient Boosted Tree: 90%<br>
+Random Forest: 90%<br>
+Neural Net: 83.6%<br>
+*Note that our Neural Net has been updated to a deep model using the "relu" and "softmax" activations
 
 #### EDA & Preprocessing
 Null Values
 - A large number of Null values (40k+)are present in the raw data. After preprocessing (including dropping unneeded columns) 3,572 remain
 - We are evaluating several methods for handling these: Dropping, Imputing (Mean, Median, Mode)
+- Further analysis shows that roughly 363 rows contain nulls. After evaluating (running the ML models) each impute method and applying domain knowledge the best options is to drop these rows
 
 Feature Evaluation & Selection
 - We are primarily using a Sequential Feature Selector currently from the mlextend library. This performs an analysis on a range of possible features subset and scores them. Additionally we have a Correlation Matrix, Coefficient analysis and Feature Importance Graph to guide feature selection
+- Each Model has been trained on a subset of features. The results reveal that dropping features actually slightly reduces our percentage. We are currently running the models on all features instead.
 
 Creating test & train datasets
 - Initially we set the targey(y) to koi_pdisposition and the features to the remaining columns based on the feature evaluation process
@@ -90,3 +100,5 @@ Google slides drafting: https://docs.google.com/presentation/d/1aQ9Man76uhiFXY43
 ![](images/github/dashboardDraft.png)
 
 We are currently planning on using Tableau for the presentation & dashboard. The interactive elements will be the graphs shown.
+
+Web application (work in progress) created to predict exoplanet prediction using various inputs and our trained/built models: https://kepler-groupa.herokuapp.com/
