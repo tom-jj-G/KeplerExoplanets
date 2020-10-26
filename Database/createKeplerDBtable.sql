@@ -1,5 +1,27 @@
 -- This is the schema definition for the Kepler Exoplant Project DB
 
+-- test table definitions & content
+select * from eda_kepler
+select * from kepler_habitable
+select * from raw_kepler
+
+-- table eda_kepler contains the results of EDA from the raw_kepler data
+-- DROP TABLE eda_kepler
+
+CREATE TABLE eda_kepler (
+	kepid int   NOT NULL,
+	"Exoplanet Archive Disposition" int,  
+	"Not Transit-Like FPF" bigint,  
+	"Stellar Eclipse FPF" bigint,   
+	"Centroid Offset FPF" bigint,  
+	"Ephemeris Match Indicates Contamination FPF" bigint,  
+	"Impact Parameter" double precision,
+	"Transit Depth [ppm]" double precision,
+	"Planetary Radius [Earth radii]" double precision,
+	"Transit Signal-to-Noise" double precision,
+	CONSTRAINT "pk_eda_kepler" PRIMARY KEY ("kepid")
+);
+
 -- kepler_habitable - store data  about the Stellar object associated with Kepler Objects of Interest 
 -- DROP TABLE kepler_habitable 
 

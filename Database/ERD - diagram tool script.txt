@@ -1,0 +1,84 @@
+# This is the schema definition for the Kepler Exoplant Project DB
+# The following is a PLACEHOLDER table
+
+kepler_habitable
+-
+kepid                 PK int FK -< raw_kepler.kepid
+kepler_name           string
+koi_smet              float64
+koi_smet_err1         float64
+koi_smet_err2         float64
+koi_smass             float64
+koi_smass_err1        float64
+koi_smass_err2        float64
+
+# table eda_kepler contains the results of EDA from the raw_kepler data
+
+eda_kepler
+-
+kepid int FK -< raw_kepler.kepid
+"Exoplanet Archive Disposition" int
+"Not Transit-Like FPF" bigint
+"Stellar Eclipse FPF" bigint
+"Centroid Offset FPF" bigint
+"Ephemeris Match Indicates Contamination FPF" bigint
+"Impact Parameter" doubleprecision
+"Transit Depth [ppm]" doubleprecision
+"Planetary Radius [Earth radii]" doubleprecision
+"Transit Signal-to-Noise" doubleprecision
+
+
+
+# The following table definition is used to store the raw data as loaded from the source CSV file
+
+raw_kepler
+-
+rowid integer
+kepid integer
+kepoi_name PK text
+koi_disposition text
+koi_pdisposition text
+koi_score float
+koi_fpflag_nt bigint,
+koi_fpflag_ss bigint,
+koi_fpflag_co bigint,
+koi_fpflag_ec bigint,
+koi_period           float64
+koi_period_err1      float64
+koi_period_err2      float64
+koi_time0bk          float64
+koi_time0bk_err1     float64
+koi_time0bk_err2     float64
+koi_impact           float64
+koi_impact_err1      float64
+koi_impact_err2      float64
+koi_duration         float64
+koi_duration_err1    float64
+koi_duration_err2    float64
+koi_depth            float64
+koi_depth_err1       float64
+koi_depth_err2       float64
+koi_prad             float64
+koi_prad_err1        float64
+koi_prad_err2        float64
+koi_teq              float64
+koi_teq_err1         float64
+koi_teq_err2         float64
+koi_insol            float64
+koi_insol_err1       float64
+koi_insol_err2       float64
+koi_model_snr        float64
+koi_tce_plnt_num     float64
+koi_tce_delivname     object
+koi_steff            float64
+koi_steff_err1       float64
+koi_steff_err2       float64
+koi_slogg            float64
+koi_slogg_err1       float64
+koi_slogg_err2       float64
+koi_srad             float64
+koi_srad_err1        float64
+koi_srad_err2        float64
+ra                   float64
+dec                  float64
+koi_kepmag           float64
