@@ -46,7 +46,7 @@ We have updated our target value to be the "Exoplanet_Archive_Disposition" which
 |Random Forest|- High-performing<br>- Robust against overfitting<br>- Fast to train|- Not easy to understand predictions|
 |Neural Net|- Handle extremely complex tasks|- Slow to train<br>- Almost impossible to understand predictions|
 
-Current f1 scores:
+Current f1 scores:<br>
 Supervised ML logistic Regression: 83%<br>
 Gradient Boosted Tree: 90%<br>
 Random Forest: 90%<br>
