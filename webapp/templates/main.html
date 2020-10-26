@@ -16,7 +16,7 @@ form {
 </head>
 <form action="{{ url_for('main') }}" method="POST">
     <fieldset>
-        <legend>Input values:</legend>
+        <legend><p style="color:red">WORK IN PROGRESS - Input values:</p></legend>
         Input 1:
         <input name="input_1" type="number" required>
         <br>
@@ -37,7 +37,7 @@ form {
             <b>{{ variable }}</b> : {{ value }}
         {% endfor %}
         <br>
-        <br> Predicted output:
+        <br> <p style="color:red">WORK IN PROGRESS - Predicted output (using Neural Network model, will return 1.0 if not predicted an exoplanet, 0.0 if predicted an exoplanet):</p>
            <p style="font-size:50px">{{ result }}</p>
     {% endif %}
 </div>
