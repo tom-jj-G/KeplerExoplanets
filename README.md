@@ -47,10 +47,10 @@ We have updated our target value to be the "Exoplanet_Archive_Disposition" which
 |Neural Net|- Handle extremely complex tasks|- Slow to train<br>- Almost impossible to understand predictions|
 
 Current f1 scores:
-Supervised ML logistic Regression: 83%
-Gradient Boosted Tree: 90%
-Random Forest: 90% 
-Neural Net: 83.6%
+Supervised ML logistic Regression: 83%<br>
+Gradient Boosted Tree: 90%<br>
+Random Forest: 90%<br>
+Neural Net: 83.6%<br>
 *Note that our Neural Net has been updated to a deep model using the "relu" and "softmax" activations
 
 #### EDA & Preprocessing
