@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Keppler Web Application</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -23,7 +23,7 @@
     </div>
     <form action="{{ url_for('main') }}" method="POST">
         <fieldset>
-            <legend><p>Input values:</p></legend>
+            <legend><p style="font-size:50px">Input values:</p></legend>
             Centroid Offset FPF:
             <select  name="input_1">
                 <option value=0>0</option>
@@ -40,43 +40,43 @@
                 <option value=1>1</option>
             </select>
             <br> Transit Depth [ppm]:
-            <input name="input_4" type="number" step="any" required>
+            <input name="input_4" type="number" step="any" value=1517.5 required>
             <br> Stellar Eclipse FPF:
             <select  name="input_5">
                 <option value=0>0</option>
                 <option value=1>1</option>
             </select>
             <br> Transit Signal-to-Noise:
-            <input name="input_6" type="number" step="any" required>
+            <input name="input_6" type="number" step="any" value=66.5 required>
             <br> Stellar Radius [Solar radii]:
-            <input name="input_7" type="number" step="any" required>
+            <input name="input_7" type="number" step="any" value=0.972 required>
             <br> Impact Parameter:
-            <input name="input_8" type="number" step="any" required>
+            <input name="input_8" type="number" step="any" value=0.538 required>
             <br> Orbital Period [days]:
-            <input name="input_9" type="number" step="any" required>
+            <input name="input_9" type="number" step="any" value=11.09432054 required>
             <br> Equilibrium Temperature [K]:
-            <input name="input_10" type="number" step="any" required>
+            <input name="input_10" type="number" step="any" value=835 required>
             <br> Transit Duration [hrs]:
-            <input name="input_11" type="number" step="any" required>
+            <input name="input_11" type="number" step="any" value=4.5945 required>
             <br> Insolation Flux [Earth flux]:
-            <input name="input_12" type="number" step="any" required>
+            <input name="input_12" type="number" step="any" value=114.81 required>
             <br> Transit Epoch [BKJD]:
-            <input name="input_13" type="number" step="any" required>
+            <input name="input_13" type="number" step="any" value=171.20116 required>
             <br> Kepler-band [mag]:
-            <input name="input_14" type="number" step="any" required>
+            <input name="input_14" type="number" step="any" value=15.714 required>
             <br> Stellar Surface Gravity [log10(cm/s**2)]:
-            <input name="input_15" type="number" step="any" required>
+            <input name="input_15" type="number" step="any" value=4.486 required>
             <br> Stellar Effective Temperature [K]:
-            <input name="input_16" type="number" step="any" required>
+            <input name="input_16" type="number" step="any" value=6046 required>
             <br> Planetary Radius [Earth radii]:
-            <input name="input_17" type="number" step="any" required>
+            <input name="input_17" type="number" step="any" value=3.9 required>
             <br>
             <br>
             <br> <b><u>Machine Learning model:</u></b>
             <select  name="model">
-              <option value="Supervised ML logistic Regression">Supervised ML logistic Regression</option>
+              <!-- <option value="Supervised ML logistic Regression">Supervised ML logistic Regression</option>
               <option value="Gradient Boosted Tree">Gradient Boosted Tree</option>
-              <option value="Random Forest">Random Forest</option>
+              <option value="Random Forest">Random Forest</option> -->
               <option value="Neural Network">Neural Network</option>
             </select>
             <br>
@@ -93,8 +93,10 @@
                 <b> {{ variable }}</b> : {{ value }} |
             {% endfor %}
             <br>
-            <br> <p style="color:red">WORK IN PROGRESS - Predicted output (using Neural Network model, will return 1.0 if not predicted an exoplanet, 0.0 if predicted an exoplanet):</p>
-            <p style="font-size:50px">{{ result }}</p>
+            <br>
+            <h1 style="font-size:50px;color:red">{{ result }}</h1>
+            <p style="font-size:20px">(Prediction probability: {{ probability }})</p>
+            <input type="image" src={{ image }} style="width: 600px">
         {% endif %}
     </div>
 </body>

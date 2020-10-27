@@ -1,10 +1,7 @@
 import flask
-import pickle
 import pandas as pd
 import tensorflow as tf
-
-# Use keras to load in the trained model.
-model = tf.keras.models.load_model('model/trained_kepler.h5')
+from joblib import load
 
 app = flask.Flask(__name__, template_folder='templates')
 @app.route('/', methods=['GET', 'POST'])
@@ -30,17 +27,31 @@ def main():
         input_15 = flask.request.form['input_15']
         input_16 = flask.request.form['input_16']
         input_17 = flask.request.form['input_17']
+
+        # Retrieve the model choose
         model_choose = flask.request.form['model']
+        if model_choose == "Neural Network":
+            # Use keras to load in the trained model
+            model = tf.keras.models.load_model('model/kepler_NN.h5')
+            # Import scaelr parameters used to trained teh model
+            scaler = load('model/scaler_param.joblib')
+
         # Build the dataframe
-        input_variables = pd.DataFrame([[input_2, input_5, input_1,input_3,input_9,input_13,input_8,input_11,input_4,input_17,input_10,input_12,input_6,0,input_16,input_15,input_7,0,0,input_14,0,0,0]],
-                                       columns=["c1", "c2", "c3","c4","c5","c6","c7","c8","c9","c10","c11","c12","c13","c14","c15","c16","c17","c18","c19","c20","c21","c22","c23"],
+        input_variables_df = pd.DataFrame([[input_2, input_5, input_1,input_3,input_9,input_13,input_8,input_11,input_4,input_17,input_10,input_12,input_6,input_16,input_15,input_7,input_14]],
+                                       columns=["c1", "c2", "c3","c4","c5","c6","c7","c8","c9","c10","c11","c12","c13","c14","c15","c16","c17"],
                                        dtype=float)
+        # Scale the data
+        input_variables_scaled = scaler.transform(input_variables_df)
         # Predict using the model
-        prediction = model.predict(input_variables)[0][2]
-        if prediction == 1:
+        prediction = model.predict(input_variables_scaled)[0][2]
+        if prediction >= 0.5:
             output = "Exoplanet not predicted..."
+            prob = prediction
+            img = "static/images/not_exoplanet.jfif"
         else:
             output = "Exoplanet predicted!!!"
+            prob = 1 - prediction
+            img = "static/images/exoplanet.jpg"
 
         return flask.render_template('main.html',
                                      original_input={'Centroid Offset FPF':input_1,
@@ -60,6 +71,8 @@ def main():
                                                      'Stellar Surface Gravity [log10(cm/s**2)]':input_15,
                                                      'Stellar Effective Temperature [K]':input_16,
                                                      'Planetary Radius [Earth radii]':input_17,
-                                                     'Machine Learning model choose':model_choose},
+                                                     'Machine Learning model chosen':model_choose},
                                      result=output,
+                                     probability="{:.2f}%".format(prob*100),
+                                     image = img
                                      )
