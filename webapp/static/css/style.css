@@ -1,0 +1,23 @@
+body {
+
+    color: #f7f7f7;
+  }
+
+.jumbotron {
+background-image: url("../images/kepler.jpg");
+background-size: contain;
+text-align: center;
+}
+
+form {
+  text-align: center;
+  margin: auto;
+  width: 75%;
+  border: 2px solid #ccc;
+}
+
+.result {
+  margin: auto;
+  width: 75%;
+  border: 5px solid #ccc;
+}
