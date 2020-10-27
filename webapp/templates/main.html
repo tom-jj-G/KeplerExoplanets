@@ -1,44 +1,101 @@
 <!doctype html>
 <html>
-<style>
-form {
-    margin: auto;
-    width: 35%;
-}
-.result {
-    margin: auto;
-    width: 35%;
-    border: 1px solid #ccc;
-}
-</style>
 <head>
-    <title>Kepler Model</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<form action="{{ url_for('main') }}" method="POST">
-    <fieldset>
-        <legend><p style="color:red">WORK IN PROGRESS - Input values:</p></legend>
-        Input 1:
-        <input name="input_1" type="number" required>
-        <br>
-        <br> Input 2:
-        <input name="input_2" type="number" required>
-        <br>
-        <br> Input 3:
-        <input name="input_3" type="number" required>
-        <br>
-        <br>
-        <input type="submit">
-    </fieldset>
-</form>
-<br>
-<div class="result" align="center">
-    {% if result %}
-        {% for variable, value in original_input.items() %}
-            <b>{{ variable }}</b> : {{ value }}
-        {% endfor %}
-        <br>
-        <br> <p style="color:red">WORK IN PROGRESS - Predicted output (using Neural Network model, will return 1.0 if not predicted an exoplanet, 0.0 if predicted an exoplanet):</p>
-           <p style="font-size:50px">{{ result }}</p>
-    {% endif %}
-</div>
+<body class="bg-dark">
+    <div class="wrapper">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <a class="navbar-brand">NASA Kepler Mission Predictions: finding if an object of interest is an exoplanet using Machine Learning</a>
+        </nav>
+        <div class="jumbotron">
+            <h1 class=display-1 style="color:yellow">To infinity and beyond!</h1>
+        </div>
+    </div>
+    <form action="{{ url_for('main') }}" method="POST">
+        <fieldset>
+            <legend><p>Input values:</p></legend>
+            Centroid Offset FPF:
+            <select  name="input_1">
+                <option value=0>0</option>
+                <option value=1>1</option>
+              </select>
+            <br> Not Transit-Like FPF:
+            <select  name="input_2">
+                <option value=0>0</option>
+                <option value=1>1</option>
+              </select>
+            <br> Ephemeris Match Indicates Contamination FPF:
+            <select  name="input_3">
+                <option value=0>0</option>
+                <option value=1>1</option>
+            </select>
+            <br> Transit Depth [ppm]:
+            <input name="input_4" type="number" step="any" required>
+            <br> Stellar Eclipse FPF:
+            <select  name="input_5">
+                <option value=0>0</option>
+                <option value=1>1</option>
+            </select>
+            <br> Transit Signal-to-Noise:
+            <input name="input_6" type="number" step="any" required>
+            <br> Stellar Radius [Solar radii]:
+            <input name="input_7" type="number" step="any" required>
+            <br> Impact Parameter:
+            <input name="input_8" type="number" step="any" required>
+            <br> Orbital Period [days]:
+            <input name="input_9" type="number" step="any" required>
+            <br> Equilibrium Temperature [K]:
+            <input name="input_10" type="number" step="any" required>
+            <br> Transit Duration [hrs]:
+            <input name="input_11" type="number" step="any" required>
+            <br> Insolation Flux [Earth flux]:
+            <input name="input_12" type="number" step="any" required>
+            <br> Transit Epoch [BKJD]:
+            <input name="input_13" type="number" step="any" required>
+            <br> Kepler-band [mag]:
+            <input name="input_14" type="number" step="any" required>
+            <br> Stellar Surface Gravity [log10(cm/s**2)]:
+            <input name="input_15" type="number" step="any" required>
+            <br> Stellar Effective Temperature [K]:
+            <input name="input_16" type="number" step="any" required>
+            <br> Planetary Radius [Earth radii]:
+            <input name="input_17" type="number" step="any" required>
+            <br>
+            <br>
+            <br> <b><u>Machine Learning model:</u></b>
+            <select  name="model">
+              <option value="Supervised ML logistic Regression">Supervised ML logistic Regression</option>
+              <option value="Gradient Boosted Tree">Gradient Boosted Tree</option>
+              <option value="Random Forest">Random Forest</option>
+              <option value="Neural Network">Neural Network</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="Let's predict!">
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <br>
+    <div class="result" align="center">
+        {% if result %}
+            {% for variable, value in original_input.items() %}
+                <b> {{ variable }}</b> : {{ value }} |
+            {% endfor %}
+            <br>
+            <br> <p style="color:red">WORK IN PROGRESS - Predicted output (using Neural Network model, will return 1.0 if not predicted an exoplanet, 0.0 if predicted an exoplanet):</p>
+            <p style="font-size:50px">{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
 </html>
