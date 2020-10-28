@@ -30,29 +30,56 @@ def main():
 
         # Retrieve the model choose
         model_choose = flask.request.form['model']
+
+        # Load the model chosen (via keuras for NN or joblib.load for the others)
         if model_choose == "Neural Network":
-            # Use keras to load in the trained model
             model = tf.keras.models.load_model('model/kepler_NN.h5')
-            # Import scaelr parameters used to trained teh model
-            scaler = load('model/scaler_param.joblib')
+
+        elif model_choose == "Supervised ML logistic Regression":
+            model = load('model/SLR.pkl')
+
+        elif model_choose == "Gradient Boosted Tree":
+            model = load('model/GBT.pkl')
+
+        elif model_choose == "Random Forest":
+            model = load('model/BRF.pkl')
+
+        # Import scaler parameters used to train the model
+        scaler = load('model/scaler_param.joblib')
 
         # Build the dataframe
         input_variables_df = pd.DataFrame([[input_2, input_5, input_1,input_3,input_9,input_13,input_8,input_11,input_4,input_17,input_10,input_12,input_6,input_16,input_15,input_7,input_14]],
                                        columns=["c1", "c2", "c3","c4","c5","c6","c7","c8","c9","c10","c11","c12","c13","c14","c15","c16","c17"],
                                        dtype=float)
+        
         # Scale the data
         input_variables_scaled = scaler.transform(input_variables_df)
+        
         # Predict using the model
-        prediction = model.predict(input_variables_scaled)[0][2]
-        if prediction >= 0.5:
-            output = "Exoplanet not predicted..."
-            prob = prediction
-            img = "static/images/not_exoplanet.jfif"
+        if model_choose == "Neural Network":
+            prediction = model.predict(input_variables_scaled)[0][2]
+            if prediction >= 0.5:
+                output = "Exoplanet not predicted..."
+                prob = "{:.2f}%".format(prediction*100)
+                img = "static/images/not_exoplanet.jfif"
+            else:
+                output = "Exoplanet predicted!!!"
+                prob = "{:.2f}%".format((1 - prediction)*100)
+                img = "static/images/exoplanet.jpg"
         else:
-            output = "Exoplanet predicted!!!"
-            prob = 1 - prediction
+            prob = ""
+            prediction = model.predict(input_variables_scaled)
+            if prediction > 1:
+                output = "Exoplanet not predicted..."
+            else:
+                output = "Exoplanet predicted!!!"
+        # Image selection
+        if output == "Exoplanet predicted!!!":
             img = "static/images/exoplanet.jpg"
+        else:
+            img = "static/images/not_exoplanet.jfif"
 
+        # Return the ouptputs
         return flask.render_template('main.html',
                                      original_input={'Centroid Offset FPF':input_1,
                                                      'Not Transit-Like FPF':input_2,
@@ -73,6 +100,6 @@ def main():
                                                      'Planetary Radius [Earth radii]':input_17,
                                                      'Machine Learning model chosen':model_choose},
                                      result=output,
-                                     probability="{:.2f}%".format(prob*100),
+                                     probability=prob,
                                      image = img
                                      )
