@@ -74,9 +74,9 @@
             <br>
             <br> <b><u>Machine Learning model:</u></b>
             <select  name="model">
-              <!-- <option value="Supervised ML logistic Regression">Supervised ML logistic Regression</option>
+              <option value="Supervised ML logistic Regression">Supervised ML logistic Regression</option>
               <option value="Gradient Boosted Tree">Gradient Boosted Tree</option>
-              <option value="Random Forest">Random Forest</option> -->
+              <option value="Random Forest">Random Forest</option>
               <option value="Neural Network">Neural Network</option>
             </select>
             <br>
@@ -95,7 +95,9 @@
             <br>
             <br>
             <h1 style="font-size:50px;color:red">{{ result }}</h1>
-            <p style="font-size:20px">(Prediction probability: {{ probability }})</p>
+            {% if probability != "" %}
+            <p style="font-size:20px"><i>(Neural Network prediction probability: {{ probability }})</i></p>
+            {% endif %}
             <input type="image" src={{ image }} style="width: 600px">
         {% endif %}
     </div>
