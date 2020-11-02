@@ -101,4 +101,4 @@ Google slides drafting: https://docs.google.com/presentation/d/1aQ9Man76uhiFXY43
 
 We are currently planning on using Tableau for the presentation & dashboard. The interactive elements will be the graphs shown.
 
-Web application (work in progress) created to predict exoplanet prediction using various inputs and our trained/built models: https://kepler-groupa.herokuapp.com/
+Web application created and hosted on Heroku. Its goals is to find if an object of interest is an exoplanet using our four trained/built machine learning models: https://kepler-groupa.herokuapp.com/
