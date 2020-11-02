@@ -90,7 +90,7 @@ We used the PG Admin console Import/Export tool to import the CSV files into the
 - Join raw_kepler KOI data to it's associated stellar object data using "kepid" as a foreign key
 - This is a one to many relationship, where any kepid star can have one or more related KOIs.
 
-ERD - ![see here](https://github.com/tom-jj-G/KeplerExoplanets/blob/main/Database/ERD.jpg)
+ERD - ![see here](https://github.com/tom-jj-G/KeplerExoplanets/blob/main/Database/ERD%20-%20Kepler%20Exoplant%20Project.jpg)
 
 - Data dictionary "Data Columns in Kepler Objects of Interest Table" is located here "https://exoplanetarchive.ipac.caltech.edu/docs/API_kepcandidate_columns.html#tce_info"
 
